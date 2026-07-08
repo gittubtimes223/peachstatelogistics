@@ -5,65 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peach State Logistics & Consulting | Northeast Georgia Supply Chain Solutions</title>
     <style>
-        /* ============================================
-           🎨 EASY COLOR CUSTOMIZATION
-           Change these values to update colors site-wide
-           ============================================ */
-        
-        /* LOGO SIZE - Change these numbers to make logo bigger/smaller */
-        /* Desktop logo size: Change 48px to make bigger (try 56px, 64px) or smaller (try 40px, 32px) */
-        /* Mobile logo size: Currently 40px - adjust proportionally with desktop */
-        
-        /* PRIMARY COLORS - Your brand palette */
-        /* Cream background: #f8f0e1 */
-        /* Navy (chevrons): #1e3a56 */
-        /* Dark blue-gray (letters): #364f60 */
-        /* Terracotta (diamond): #d8874a */
-        
-        /* CURRENT COLOR SCHEME:
-           - Primary navy (headings, borders): #1e3a56
-           - Header/footer background: #f8f0e1 (cream)
-           - Body text: #364f60 (dark blue-gray)
-           - Accent/buttons: #d8874a (terracotta)
-           
-           TO CHANGE HEADER COLOR: Search for "HEADER BACKGROUND" below
-           TO CHANGE PRIMARY NAVY: Search/replace #1e3a56 with your chosen navy
-        */
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #364f60; /* Body text color */
-            background-color: #f8f0e1; /* Page background - cream */
+            color: #364f60;
+            background-color: #f8f0e1;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        /* ============================================
-           HEADER BACKGROUND - Change color here
-           Options:
-           - Cream: #f8f0e1 (set text/logo to #1e3a56)
-           - White: #ffffff (set text/logo to #1e3a56)
-           - Navy: #1e3a56 (set text/logo to #f8f0e1)
-           - Dark blue-gray: #364f60 (set text/logo to #f8f0e1)
-           ============================================ */
         header {
-            background-color: #f8f0e1; /* CHANGE THIS for header background */
-            padding: 1rem 0;
+            background-color: #364f60;
+            padding: 1.25rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
         header .container {
@@ -76,231 +48,324 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: #1e3a56; /* Logo text color - matches navy */
+            color: #f8f0e1;
+            letter-spacing: -0.02em;
         }
 
-        /* LOGO SIZE - CHANGE HERE */
         .logo-icon {
-            width: 48px; /* DESKTOP LOGO SIZE - change this number */
+            width: 32px;
             height: auto;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
         nav a {
-            color: #1e3a56; /* Nav link color - matches logo */
+            color: #f8f0e1;
             text-decoration: none;
-            margin-left: 2rem;
-            font-weight: 500;
-            transition: color 0.3s;
+            margin-left: 2.25rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.25s ease;
         }
 
         nav a:hover {
-            color: #d8874a; /* Terracotta hover */
+            color: #d8874a;
         }
 
         .hero {
-            background: linear-gradient(135deg, #1e3a56 0%, #364f60 100%); /* Navy gradient */
+            background: linear-gradient(135deg, #1e3a56 0%, #364f60 100%);
             color: #f8f0e1;
-            padding: 8rem 0 6rem;
+            padding: 9rem 0 7rem;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.25rem;
+            margin-bottom: 1.25rem;
             line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            max-width: 950px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero .tagline {
-            font-size: 1.5rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.45rem;
+            margin-bottom: 2.75rem;
             color: #f8f0e1;
-            opacity: 0.9;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn-primary {
             display: inline-block;
-            background-color: #d8874a; /* Terracotta button */
+            background-color: #d8874a;
             color: #f8f0e1;
-            padding: 1rem 2.5rem;
+            padding: 1.1rem 2.75rem;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
+            border-radius: 6px;
+            font-weight: 700;
             font-size: 1.1rem;
-            transition: all 0.3s;
+            transition: all 0.25s ease;
             border: none;
             cursor: pointer;
+            box-shadow: 0 4px 12px rgba(216, 135, 74, 0.2);
         }
 
         .btn-primary:hover {
-            background-color: #c47640; /* Darker terracotta on hover */
+            background-color: #c47640;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(216, 135, 74, 0.3);
+            box-shadow: 0 6px 20px rgba(216, 135, 74, 0.35);
+        }
+
+        .cta-subtext {
+            font-size: 0.9rem;
+            margin-top: 0.85rem;
+            opacity: 0.8;
+            font-style: italic;
         }
 
         section {
-            padding: 5rem 0;
+            padding: 6rem 0;
         }
 
         section:nth-child(even) {
-            background-color: #f8f0e1; /* Cream for consistency - matches service cards */
+            background-color: #ffffff;
         }
 
         h2 {
             font-size: 2.5rem;
-            color: #1e3a56; /* Primary navy for all headings */
-            margin-bottom: 1rem;
+            color: #1e3a56;
+            margin-bottom: 1.25rem;
             text-align: center;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .section-intro {
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3rem;
+            max-width: 850px;
+            margin: 0 auto 3.5rem;
             font-size: 1.2rem;
-            color: #364f60; /* Dark blue-gray for intro text */
+            line-height: 1.75;
+            color: #364f60;
+        }
+
+        /* High contrast fix for dark background intro copy */
+        .contact-section .section-intro {
+            color: #f8f0e1;
+            opacity: 0.95;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
             margin-top: 3rem;
         }
 
         .service-card {
-            background: #f8f0e1; /* Cream background for all cards */
-            padding: 2.5rem;
+            background: #ffffff;
+            padding: 2.75rem 2.5rem;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(30, 58, 86, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(30, 58, 86, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Remove the alternating background rule for service cards */
+        section:nth-child(even) .service-card {
+            background: #f8f0e1;
+        }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(30, 58, 86, 0.15);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(30, 58, 86, 0.12);
         }
 
         .service-card h3 {
-            color: #1e3a56; /* Primary navy */
+            color: #1e3a56;
             font-size: 1.5rem;
-            margin-bottom: 1rem;
-            border-bottom: 3px solid #d8874a; /* Terracotta accent */
-            padding-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 3px solid #d8874a;
+            padding-bottom: 0.6rem;
+            font-weight: 700;
         }
 
         .service-card p {
-            margin-bottom: 1rem;
-            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            flex-grow: 1; /* Aligns price blocks uniformly */
         }
 
         .service-card .price {
-            color: #d8874a; /* Terracotta for pricing */
+            color: #d8874a;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(54, 79, 96, 0.15);
+            margin-top: auto;
         }
 
         .about-content {
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1.15rem;
+            line-height: 1.85;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
         }
 
         .port-highlight {
-            background: linear-gradient(135deg, #1e3a56 0%, #364f60 100%); /* Navy gradient */
+            background: linear-gradient(135deg, #1e3a56 0%, #364f60 100%);
             color: #f8f0e1;
-            padding: 4rem 0;
-            margin: 0; /* Remove margin to eliminate white space gaps */
+            padding: 5rem 0;
+            margin: 2rem 0 0;
         }
 
         .port-highlight h2 {
             color: #f8f0e1;
+            margin-bottom: 1.5rem;
         }
 
         .port-highlight p {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
-            font-size: 1.2rem;
-            line-height: 1.8;
+            font-size: 1.25rem;
+            line-height: 1.85;
             text-align: center;
+            opacity: 0.95;
         }
 
         .contact-section {
             text-align: center;
-            background: linear-gradient(135deg, #1e3a56 0%, #364f60 100%); /* Navy gradient */
+            background: linear-gradient(135deg, #364f60 0%, #1e3a56 100%);
             color: #f8f0e1;
+            padding: 6rem 0;
         }
 
         .contact-section h2 {
             color: #f8f0e1;
         }
-        
-        .contact-section .section-intro {
-            color: #f8f0e1; /* Override to cream for visibility on dark background */
-        }
 
         .contact-methods {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin: 2rem 0 3rem;
+            gap: 4rem;
+            margin: 2.5rem 0 3.5rem;
             flex-wrap: wrap;
         }
 
         .contact-item {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+        }
+
+        .contact-item strong {
+            display: block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.8;
+            margin-bottom: 0.25rem;
         }
 
         .contact-item a {
-            color: #d8874a; /* Terracotta links */
+            color: #d8874a;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            transition: color 0.2s ease;
         }
 
         .contact-item a:hover {
             color: #c47640;
+            text-decoration: underline;
         }
 
         footer {
-            background-color: #f8f0e1; /* Matches header - cream */
-            color: #1e3a56; /* Navy text */
+            background-color: #1e3a56;
+            color: #f8f0e1;
             text-align: center;
-            padding: 2rem 0;
+            padding: 2.5rem 0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            border-top: 1px solid rgba(248, 240, 225, 0.1);
         }
 
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 768px) {
-            .logo span {
-                font-size: 1.1rem;
-            }
-
-            /* MOBILE LOGO SIZE - CHANGE HERE */
-            .logo-icon {
-                width: 40px; /* MOBILE LOGO SIZE - change this number */
-            }
-
+        @media (max-width: 992px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.75rem;
+            }
+            .services-grid {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1.25rem 0;
             }
 
-            .hero .tagline {
-                font-size: 1.2rem;
+            header .container {
+                flex-direction: column;
+                gap: 1.25rem;
+                text-align: center;
             }
 
             nav {
-                display: none;
+                justify-content: center;
+                width: 100%;
+            }
+
+            nav a {
+                margin: 0 1rem;
+                font-size: 1rem;
+            }
+
+            .hero {
+                padding: 6rem 0 5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.25rem;
+                margin-bottom: 2rem;
             }
 
             h2 {
                 font-size: 2rem;
             }
 
+            .section-intro {
+                font-size: 1.1rem;
+                margin-bottom: 2.5rem;
+            }
+
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                gap: 1.75rem;
+                margin: 2rem 0;
             }
         }
     </style>
@@ -309,7 +374,6 @@
     <header>
         <div class="container">
             <div class="logo">
-                <!-- Logo SVG - colors match brand: navy chevrons (#1e3a56), terracotta diamond (#d8874a) -->
                 <svg class="logo-icon" viewBox="0 0 13.283039 15.516931" xmlns="http://www.w3.org/2000/svg">
                     <g transform="translate(-50.8,-122.2375)">
                         <path fill="#1e3a56" d="m 57.441537,122.2375 6.314737,5.1612 c 0.435685,0.35605 0.435685,0.7119 0,1.06795 l -0.870902,0.71189 c -0.43545,0.35586 -0.870901,0.35586 -1.306585,0 l -4.13725,-3.38156 -4.137249,3.38156 c -0.435452,0.35586 -0.871136,0.35586 -1.306586,0 L 51.1268,128.46665 c -0.435684,-0.35605 -0.435684,-0.7119 0,-1.06795 z m 0,0"/>
@@ -329,20 +393,18 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Northeast Georgia's Supply Chain & Freight Solutions Specialist</h1>
-            <p class="tagline">Helping manufacturers reduce logistics costs and prepare for the Gainesville Inland Port</p>
+            <h1>Data-Driven Supply Chain Advisory for Northeast Georgia Shippers</h1>
+            <p class="tagline">Recover warehouse capacity, reduce labor cycle times, and execute financial lane modeling for the Gainesville Inland Port.</p>
             <a href="#contact" class="btn-primary">Schedule a Free Discovery Call</a>
+            <p class="cta-subtext">No obligation. Just a 30-minute operational assessment.</p>
         </div>
     </section>
 
-    <section id="who-we-help">
+    <section id="who-we-serve">
         <div class="container">
-            <h2>Who I Help</h2>
+            <h2>Who We Serve</h2>
             <p class="section-intro">
-                I work with manufacturers, distributors, and carriers in Northeast Georgia who need to reduce logistics costs,
-                optimize their supply chain operations, or navigate the new Gainesville Inland Port. If you're evaluating
-                intermodal rail, dealing with excess inventory, or looking to improve warehouse efficiency, I bring practical
-                supply chain expertise directly to your operation.
+                We partner with industrial plant managers, distribution directors, and operational leaders across the Northeast Georgia manufacturing corridor who need executive-level clarity on cost engineering. Whether your operation is looking to unlock cash flow from slow-moving pallets, reclaim wasted pick labor, or audit short-haul drayage margins to Savannah, we deliver execution-ready strategies backed by real-world operational benchmarks.
             </p>
         </div>
     </section>
@@ -354,31 +416,25 @@
                 <div class="service-card">
                     <h3>Port Readiness Assessment</h3>
                     <p>
-                        A structured analysis determining whether intermodal rail through the Gainesville Inland Port
-                        makes financial sense for your freight profile. Includes cost comparison modeling, volume
-                        requirements, and implementation roadmap.
+                        An independent, pure-play financial modeling engagement designed to determine if shifting lanes from OTR trucking to intermodal rail makes bottom-line sense. You receive a definitive Go / No-Go decision framework, comprehensive door-to-door drayage cost comparisons, and an implementation risk matrix.
                     </p>
-                    <p class="price">Starting at $3,000</p>
+                    <p class="price">Starting At: $3,500</p>
                 </div>
 
                 <div class="service-card">
                     <h3>Inventory Rationalization</h3>
                     <p>
-                        Identify and reduce excess and obsolete inventory draining your working capital. I analyze
-                        your SKU velocity, demand patterns, and holding costs to build a data-driven reduction plan
-                        with measurable ROI.
+                        Stop letting slow-moving and obsolete stock silently drain your working capital and consume prime floor space. We execute a comprehensive transactional velocity audit to isolate trapped cash, establish data-driven safety stock parameters, and build a structured liquidation roadmap.
                     </p>
-                    <p class="price">Starting at $2,500</p>
+                    <p class="price">Starting At: $2,500</p>
                 </div>
 
                 <div class="service-card">
                     <h3>DC Slotting Optimization</h3>
                     <p>
-                        Redesign your warehouse layout to reduce travel time, improve pick efficiency, and increase
-                        throughput. Includes current-state analysis, ABC velocity classification, and optimized
-                        slotting recommendations.
+                        Eliminate the hidden labor drain of unoptimized warehouse layouts. We perform an on-site physical workflow audit and map an engineered pick-path layout utilizing ABC velocity metrics—reducing picker travel times and expanding daily throughput capacity by up to 15%.
                     </p>
-                    <p class="price">Starting at $3,500</p>
+                    <p class="price">Starting At: $3,500</p>
                 </div>
             </div>
         </div>
@@ -389,18 +445,18 @@
             <h2>About</h2>
             <div class="about-content">
                 <p>
-                    I bring hands-on supply chain management experience across inventory rationalization, warehouse slotting
-                    optimization, and distribution operations. My background includes measurable outcomes in reducing excess
+                    We bring hands-on supply chain management experience across inventory rationalization, warehouse slotting
+                    optimization, and distribution operations. Our background includes measurable outcomes in reducing excess
                     and obsolete inventory, improving warehouse efficiency, and optimizing freight routing for regional
                     manufacturers.
                 </p>
                 <p>
-                    Through Peach State Logistics & Consulting, I offer targeted engagements for manufacturers and distributors
+                    Through Peach State Logistics & Consulting, we offer targeted engagements for manufacturers and distributors
                     in Hall, Jackson, Barrow, Banks, and White counties. Whether you need a one-time assessment or ongoing
-                    supply chain support, I focus on practical recommendations that deliver ROI.
+                    supply chain support, we focus on practical recommendations that deliver ROI.
                 </p>
                 <p>
-                    Based in Hall County, I understand the Northeast Georgia manufacturing landscape and the strategic
+                    Based in Hall County, we understand the Northeast Georgia manufacturing landscape and the strategic
                     opportunity the Gainesville Inland Port represents for regional freight operations.
                 </p>
             </div>
@@ -409,34 +465,31 @@
 
     <div class="port-highlight">
         <div class="container">
-            <h2>The Gainesville Inland Port Opportunity</h2>
+            <h2>Navigating the Gainesville Short-Haul Rail Corridor</h2>
             <p>
-                The Gainesville Inland Port connects Northeast Georgia manufacturers directly to Savannah's deepwater port
-                via intermodal rail. For companies shipping high volumes to coastal or international destinations, this
-                represents a potential shift from over-the-road trucking to cost-effective rail. The question isn't whether
-                the port exists—it's whether your freight profile justifies the transition. That's where a Port Readiness
-                Assessment provides clarity.
+                The Gainesville Inland Port connects Northeast Georgia directly to Savannah’s Garden City Terminal via Norfolk Southern rail. While the sustainability and long-haul cost models are clear, short-haul intermodal introduces complex friction points—including fixed train schedules, container yard dwell times, and local drayage logistics. The question isn't whether the infrastructure exists; it’s whether your specific container volume and lead-time tolerance justify the transition. Our assessments provide the exact lane data needed to safeguard your line velocity before altering your carrier routing.
             </p>
         </div>
     </div>
 
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2>Let's Talk About Your Operation</h2>
+            <h2>Benchmark Your Current Supply Chain Metrics</h2>
             <p class="section-intro">
-                I offer a free 30-minute discovery call—no pitch, no pressure. Just a conversation about your freight or
-                supply chain situation and what I typically find working with similar companies.
+                We offer a brief, confidential 30-minute operational assessment. No sales pitch, no obligation, and fully protected by a mutual NDA. We'll discuss your current carrier lanes, warehouse labor constraints, or inventory hurdles, and share what we are seeing across similar operations in the market.
             </p>
             <div class="contact-methods">
                 <div class="contact-item">
-                    <strong>Phone:</strong> <a href="tel:678-679-7738">678-679-7738</a>
+                    <strong>Phone</strong>
+                    <a href="tel:6786797738">(678) 679-7738</a>
                 </div>
                 <div class="contact-item">
-                    <strong>Email:</strong> <a href="mailto:drew@peachstatelogco.com">drew@peachstatelogco.com</a>
+                    <strong>Email</strong>
+                    <a href="mailto:drew@peachstatelogco.com">drew@peachstatelogco.com</a>
                 </div>
             </div>
             <a href="https://calendly.com/drew-peachstatelogco/30min-discovery-call" class="btn-primary">Book Your Free Discovery Call</a>
-            <p style="margin-top: 2rem; opacity: 0.8;">Gainesville, GA | Serving Northeast Georgia</p>
+            <p style="margin-top: 2.5rem; opacity: 0.8; font-weight: 500;">Gainesville, GA | Serving Northeast Georgia</p>
         </div>
     </section>
 
