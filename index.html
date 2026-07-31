@@ -1,502 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peach State Logistics & Consulting | Northeast Georgia Supply Chain Solutions</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Data-driven supply chain operations consulting for manufacturers and distributors. Improve inventory, warehouse processes, KPIs, and logistics decisions.">
+  <title>Peach State Logistics &amp; Consulting | Supply Chain Operations Consulting</title>
+  <style>
+    :root {
+      --navy: #1e3a56;
+      --slate: #364f60;
+      --orange: #d8874a;
+      --orange-dark: #bf6f35;
+      --cream: #f8f0e1;
+      --white: #ffffff;
+      --ink: #203747;
+      --muted: #617481;
+      --line: rgba(54, 79, 96, 0.16);
+      --shadow: 0 12px 34px rgba(30, 58, 86, 0.09);
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      background: var(--cream);
+      color: var(--slate);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    .container { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+    .eyebrow {
+      color: var(--orange);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #364f60;
-            background-color: #f8f0e1;
-            -webkit-font-smoothing: antialiased;
-        }
+    header {
+      background: rgba(30, 58, 86, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header .container {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      min-height: 78px;
+    }
+    .logo { align-items: center; color: var(--cream); display: flex; gap: 0.75rem; text-decoration: none; }
+    .logo-icon { flex: 0 0 auto; width: 31px; }
+    .logo span { font-size: 1.08rem; font-weight: 750; letter-spacing: -0.015em; }
+    nav { align-items: center; display: flex; gap: 1.75rem; }
+    nav a { color: var(--cream); font-size: 0.9rem; font-weight: 650; text-decoration: none; }
+    nav a:hover, nav a:focus-visible { color: var(--orange); }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+    .hero {
+      background:
+        radial-gradient(circle at 83% 20%, rgba(216, 135, 74, 0.18), transparent 29%),
+        linear-gradient(135deg, var(--navy), var(--slate));
+      color: var(--cream);
+      overflow: hidden;
+      padding: 8.5rem 0 7rem;
+      position: relative;
+    }
+    .hero-grid { align-items: center; display: grid; gap: 4rem; grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr); }
+    .hero h1 { font-size: clamp(2.7rem, 5vw, 4.6rem); letter-spacing: -0.045em; line-height: 1.05; max-width: 820px; }
+    .hero .tagline { color: rgba(248, 240, 225, 0.91); font-size: 1.22rem; margin: 1.6rem 0 2.25rem; max-width: 760px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+    .btn {
+      align-items: center;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      font-weight: 750;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0.8rem 1.45rem;
+      text-decoration: none;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--orange); color: var(--white); }
+    .btn-primary:hover { background: var(--orange-dark); }
+    .btn-secondary { border-color: rgba(248, 240, 225, 0.55); color: var(--cream); }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--cream); }
+    .hero-note { color: rgba(248, 240, 225, 0.72); font-size: 0.9rem; margin-top: 1.2rem; }
+    .hero-panel {
+      background: rgba(248, 240, 225, 0.08);
+      border: 1px solid rgba(248, 240, 225, 0.18);
+      border-radius: 14px;
+      padding: 1.7rem;
+    }
+    .hero-panel p { color: rgba(248, 240, 225, 0.7); font-size: 0.82rem; font-weight: 750; letter-spacing: 0.1em; text-transform: uppercase; }
+    .hero-panel ul { list-style: none; margin-top: 0.8rem; }
+    .hero-panel li { border-top: 1px solid rgba(248, 240, 225, 0.13); font-weight: 650; padding: 0.72rem 0; }
+    .hero-panel li::before { color: var(--orange); content: "✓"; margin-right: 0.65rem; }
 
-        header {
-            background-color: #364f60;
-            padding: 1.25rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
+    .trust-strip { background: var(--white); border-bottom: 1px solid var(--line); }
+    .trust-strip .container { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .trust-item { color: var(--navy); font-size: 0.9rem; font-weight: 750; padding: 1.2rem; text-align: center; }
+    .trust-item + .trust-item { border-left: 1px solid var(--line); }
 
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    section { padding: 6rem 0; }
+    .white { background: var(--white); }
+    .section-heading { margin: 0 auto 3rem; max-width: 820px; text-align: center; }
+    h2 { color: var(--navy); font-size: clamp(2rem, 3.6vw, 3rem); letter-spacing: -0.03em; line-height: 1.15; }
+    .section-heading p { color: var(--muted); font-size: 1.12rem; margin-top: 1rem; }
+    h3 { color: var(--navy); line-height: 1.25; }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #f8f0e1;
-            letter-spacing: -0.02em;
-        }
+    .problem-grid, .services-grid, .project-grid, .resource-grid, .deliverables-grid {
+      display: grid;
+      gap: 1.4rem;
+    }
+    .problem-grid { grid-template-columns: repeat(3, 1fr); }
+    .problem-card { background: var(--white); border-left: 4px solid var(--orange); box-shadow: var(--shadow); padding: 1.55rem; }
+    .problem-card h3 { font-size: 1.06rem; margin-bottom: 0.45rem; }
+    .problem-card p { color: var(--muted); font-size: 0.94rem; }
 
-        .logo-icon {
-            width: 32px;
-            height: auto;
-        }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .service-card {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+    }
+    .service-number { color: var(--orange); font-size: 0.8rem; font-weight: 850; letter-spacing: 0.1em; text-transform: uppercase; }
+    .service-card h3 { font-size: 1.45rem; margin: 0.4rem 0 0.75rem; }
+    .service-card p { color: var(--muted); }
+    .service-card ul { margin: 1rem 0 1.3rem 1.15rem; }
+    .service-card li { margin-bottom: 0.35rem; }
+    .service-price { border-top: 1px solid var(--line); color: var(--orange-dark); font-weight: 800; margin-top: auto; padding-top: 1rem; }
+    .section-note { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin: 1.5rem auto 0; max-width: 900px; text-align: center; }
 
-        nav {
-            display: flex;
-            align-items: center;
-        }
+    .project-grid { grid-template-columns: repeat(5, 1fr); }
+    .project-card { background: var(--white); border-top: 3px solid var(--orange); box-shadow: 0 8px 24px rgba(30,58,86,.07); padding: 1.35rem; }
+    .project-card h3 { font-size: 1.05rem; margin-bottom: 0.55rem; }
+    .project-card p { color: var(--muted); font-size: 0.9rem; }
+    .advisory-callout {
+      align-items: center;
+      background: var(--navy);
+      border-radius: 10px;
+      color: var(--cream);
+      display: flex;
+      gap: 2rem;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding: 2rem;
+    }
+    .advisory-callout h3 { color: var(--cream); font-size: 1.35rem; }
+    .advisory-callout p { color: rgba(248,240,225,.82); margin-top: 0.35rem; max-width: 760px; }
 
-        nav a {
-            color: #f8f0e1;
-            text-decoration: none;
-            margin-left: 2.25rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.25s ease;
-        }
+    .resource-grid { align-items: stretch; grid-template-columns: 1.25fr 0.75fr 0.75fr; }
+    .calculator, .resource-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 2rem; }
+    .calculator h3, .resource-card h3 { font-size: 1.35rem; margin-bottom: 0.6rem; }
+    .calculator > p, .resource-card p { color: var(--muted); }
+    .calc-grid { display: grid; gap: 0.9rem; grid-template-columns: repeat(2, 1fr); margin-top: 1.4rem; }
+    label { color: var(--ink); display: block; font-size: 0.86rem; font-weight: 700; }
+    input {
+      background: #fffdf8;
+      border: 1px solid #b9c2c8;
+      border-radius: 5px;
+      color: var(--ink);
+      margin-top: 0.35rem;
+      min-height: 44px;
+      padding: 0.65rem 0.75rem;
+      width: 100%;
+    }
+    input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(216,135,74,.18); outline: 0; }
+    .calc-actions { align-items: center; display: flex; gap: 1rem; margin-top: 1.2rem; }
+    .calc-result { background: var(--cream); border-left: 4px solid var(--orange); margin-top: 1.2rem; padding: 1rem; }
+    .calc-result span { color: var(--navy); display: block; font-size: 1.75rem; font-weight: 850; }
+    .methodology-note { color: var(--muted); font-size: .88rem; margin-top: 1rem; }
+    .resource-card { display: flex; flex-direction: column; }
+    .resource-card .resource-type { color: var(--orange-dark); font-size: .78rem; font-weight: 800; letter-spacing: .1em; margin-bottom: .6rem; text-transform: uppercase; }
+    .resource-card .text-link { color: var(--navy); font-weight: 800; margin-top: auto; padding-top: 1.3rem; text-decoration-color: var(--orange); text-underline-offset: 4px; }
 
-        nav a:hover {
-            color: #d8874a;
-        }
+    .process { background: linear-gradient(135deg, var(--navy), var(--slate)); color: var(--cream); }
+    .process h2, .process h3 { color: var(--cream); }
+    .process .section-heading p { color: rgba(248,240,225,.78); }
+    .steps { display: grid; gap: 1rem; grid-template-columns: repeat(4, 1fr); }
+    .step { border: 1px solid rgba(248,240,225,.18); border-radius: 8px; padding: 1.55rem; }
+    .step-num { align-items: center; background: var(--orange); border-radius: 50%; display: flex; font-weight: 850; height: 36px; justify-content: center; margin-bottom: 1rem; width: 36px; }
+    .step p { color: rgba(248,240,225,.75); font-size: .92rem; margin-top: .55rem; }
 
-        .hero {
-            background: linear-gradient(135deg, #1e3a56 0%, #364f60 100%);
-            color: #f8f0e1;
-            padding: 9rem 0 7rem;
-            text-align: center;
-        }
+    .deliverables-grid { grid-template-columns: repeat(4, 1fr); }
+    .deliverable { border-bottom: 1px solid var(--line); color: var(--ink); font-weight: 700; padding: 0.8rem 0; }
+    .deliverable::before { color: var(--orange); content: "◆"; font-size: .62rem; margin-right: .65rem; vertical-align: 2px; }
+    .principles { display: grid; gap: 3rem; grid-template-columns: .85fr 1.15fr; margin-top: 4.5rem; }
+    .principles-copy h2 { text-align: left; }
+    .principles-copy p { color: var(--muted); font-size: 1.05rem; margin-top: 1rem; }
+    .principle-list { display: grid; gap: 1rem; }
+    .principle { background: var(--cream); border-left: 3px solid var(--orange); padding: 1.05rem 1.25rem; }
+    .principle strong { color: var(--navy); display: block; }
 
-        .hero h1 {
-            font-size: 3.25rem;
-            margin-bottom: 1.25rem;
-            line-height: 1.2;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            max-width: 950px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .regional { background: #e8ecec; }
+    .regional-inner { align-items: start; display: grid; gap: 3rem; grid-template-columns: 1fr 1fr; }
+    .regional h2 { text-align: left; }
+    .regional p { color: var(--muted); margin-top: 1rem; }
+    .regional-note { background: var(--white); border-radius: 10px; box-shadow: var(--shadow); padding: 2rem; }
+    .regional-note h3 { font-size: 1.25rem; }
+    .regional-note .resource-type { color: var(--orange-dark); font-size: .78rem; font-weight: 800; letter-spacing: .1em; margin: 0 0 .55rem; text-transform: uppercase; }
+    .regional-note ul { margin: 1rem 0 1.4rem 1.15rem; }
+    .regional-note li { margin-bottom: .5rem; }
+    .regional-note .btn { margin-top: .35rem; }
+    .decision-factors { display: grid; gap: .75rem; grid-template-columns: repeat(2, 1fr); margin-top: 1.6rem; }
+    .decision-factor { background: rgba(255,255,255,.58); border-left: 3px solid var(--orange); color: var(--ink); font-size: .9rem; font-weight: 700; padding: .75rem .9rem; }
 
-        .hero .tagline {
-            font-size: 1.45rem;
-            margin-bottom: 2.75rem;
-            color: #f8f0e1;
-            opacity: 0.95;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .about-content { display: grid; gap: 3rem; grid-template-columns: .85fr 1.15fr; }
+    .about-content h2 { text-align: left; }
+    .about-content p { color: var(--muted); margin-bottom: 1rem; }
+    .fit-list { background: var(--cream); border: 1px solid var(--line); border-radius: 10px; padding: 2rem; }
+    .fit-list h3 { margin-bottom: .75rem; }
+    .fit-list li { margin: .45rem 0 .45rem 1.2rem; }
 
-        .btn-primary {
-            display: inline-block;
-            background-color: #d8874a;
-            color: #f8f0e1;
-            padding: 1.1rem 2.75rem;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.25s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(216, 135, 74, 0.2);
-        }
+    .contact { background: linear-gradient(135deg, var(--slate), var(--navy)); color: var(--cream); text-align: center; }
+    .contact h2 { color: var(--cream); }
+    .contact .section-heading p { color: rgba(248,240,225,.82); }
+    .contact-methods { display: flex; flex-wrap: wrap; gap: 3rem; justify-content: center; margin: 2rem 0; }
+    .contact-item strong { display: block; font-size: .75rem; letter-spacing: .1em; opacity: .7; text-transform: uppercase; }
+    .contact-item a { color: var(--orange); font-size: 1.15rem; font-weight: 800; text-decoration: none; }
+    .nda-note { font-size: .88rem; margin-top: 1.2rem; opacity: .72; }
+    footer { background: #142b3f; color: rgba(248,240,225,.75); font-size: .9rem; padding: 2rem 0; text-align: center; }
 
-        .btn-primary:hover {
-            background-color: #c47640;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(216, 135, 74, 0.35);
-        }
-
-        .cta-subtext {
-            font-size: 0.9rem;
-            margin-top: 0.85rem;
-            opacity: 0.8;
-            font-style: italic;
-        }
-
-        section {
-            padding: 6rem 0;
-        }
-
-        section:nth-child(even) {
-            background-color: #ffffff;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            color: #1e3a56;
-            margin-bottom: 1.25rem;
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        .section-intro {
-            text-align: center;
-            max-width: 850px;
-            margin: 0 auto 3.5rem;
-            font-size: 1.2rem;
-            line-height: 1.75;
-            color: #364f60;
-        }
-
-        /* High contrast fix for dark background intro copy */
-        .contact-section .section-intro {
-            color: #f8f0e1;
-            opacity: 0.95;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: #ffffff;
-            padding: 2.75rem 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(30, 58, 86, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        section:nth-child(even) .service-card {
-            background: #f8f0e1;
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(30, 58, 86, 0.12);
-        }
-
-        .service-card h3 {
-            color: #1e3a56;
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-            border-bottom: 3px solid #d8874a;
-            padding-bottom: 0.6rem;
-            font-weight: 700;
-        }
-
-        .service-card p {
-            margin-bottom: 1.5rem;
-            line-height: 1.75;
-            flex-grow: 1; /* Aligns price blocks uniformly */
-        }
-
-        .service-card .price {
-            color: #d8874a;
-            font-weight: 700;
-            font-size: 1.25rem;
-            padding-top: 1.25rem;
-            border-top: 1px solid rgba(54, 79, 96, 0.15);
-            margin-top: auto;
-        }
-
-        .about-content {
-            max-width: 850px;
-            margin: 0 auto;
-            font-size: 1.15rem;
-            line-height: 1.85;
-        }
-
-        .about-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .port-highlight {
-            background: linear-gradient(135deg, #1e3a56 0%, #364f60 100%);
-            color: #f8f0e1;
-            padding: 5rem 0;
-            margin: 2rem 0 0;
-        }
-
-        .port-highlight h2 {
-            color: #f8f0e1;
-            margin-bottom: 1.5rem;
-        }
-
-        .port-highlight p {
-            max-width: 850px;
-            margin: 0 auto;
-            font-size: 1.25rem;
-            line-height: 1.85;
-            text-align: center;
-            opacity: 0.95;
-        }
-
-        .contact-section {
-            text-align: center;
-            background: linear-gradient(135deg, #364f60 0%, #1e3a56 100%);
-            color: #f8f0e1;
-            padding: 6rem 0;
-        }
-
-        .contact-section h2 {
-            color: #f8f0e1;
-        }
-
-        .contact-methods {
-            display: flex;
-            justify-content: center;
-            gap: 4rem;
-            margin: 2.5rem 0 3.5rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            font-size: 1.25rem;
-        }
-
-        .contact-item strong {
-            display: block;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            opacity: 0.8;
-            margin-bottom: 0.25rem;
-        }
-
-        .contact-item a {
-            color: #d8874a;
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.2s ease;
-        }
-
-        .contact-item a:hover {
-            color: #c47640;
-            text-decoration: underline;
-        }
-
-        footer {
-            background-color: #1e3a56;
-            color: #f8f0e1;
-            text-align: center;
-            padding: 2.5rem 0;
-            font-size: 0.95rem;
-            opacity: 0.9;
-            border-top: 1px solid rgba(248, 240, 225, 0.1);
-        }
-
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.75rem;
-            }
-            .services-grid {
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 1.25rem 0;
-            }
-
-            header .container {
-                flex-direction: column;
-                gap: 1.25rem;
-                text-align: center;
-            }
-
-            nav {
-                justify-content: center;
-                width: 100%;
-            }
-
-            nav a {
-                margin: 0 1rem;
-                font-size: 1rem;
-            }
-
-            .hero {
-                padding: 6rem 0 5rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.25rem;
-                margin-bottom: 2rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .section-intro {
-                font-size: 1.1rem;
-                margin-bottom: 2.5rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .contact-methods {
-                flex-direction: column;
-                gap: 1.75rem;
-                margin: 2rem 0;
-            }
-        }
-    </style>
+    @media (max-width: 980px) {
+      nav { gap: 1rem; }
+      nav a:nth-child(4) { display: none; }
+      .hero-grid, .principles, .about-content, .regional-inner { grid-template-columns: 1fr; }
+      .hero-panel { max-width: 620px; }
+      .problem-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-grid { grid-template-columns: repeat(3, 1fr); }
+      .resource-grid { grid-template-columns: 1fr 1fr; }
+      .calculator { grid-column: 1 / -1; }
+      .steps, .deliverables-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 32px, 1180px); }
+      header .container { align-items: flex-start; flex-direction: column; gap: .7rem; padding: 1rem 0; }
+      nav { flex-wrap: wrap; gap: .6rem 1.1rem; }
+      nav a { font-size: .84rem; }
+      nav a:nth-child(4) { display: inline; }
+      .hero { padding: 5.5rem 0 4.5rem; }
+      .hero-grid { gap: 2.5rem; }
+      .hero h1 { font-size: 2.65rem; }
+      .hero-actions .btn { width: 100%; }
+      .trust-strip .container { grid-template-columns: repeat(2, 1fr); }
+      .trust-item:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
+      .trust-item:nth-child(4) { border-top: 1px solid var(--line); }
+      section { padding: 4.5rem 0; }
+      .problem-grid, .services-grid, .project-grid, .resource-grid, .steps, .deliverables-grid, .calc-grid, .decision-factors { grid-template-columns: 1fr; }
+      .calculator { grid-column: auto; }
+      .advisory-callout { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <svg class="logo-icon" viewBox="0 0 13.283039 15.516931" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="translate(-50.8,-122.2375)">
-                        <path fill="#1e3a56" d="m 57.441537,122.2375 6.314737,5.1612 c 0.435685,0.35605 0.435685,0.7119 0,1.06795 l -0.870902,0.71189 c -0.43545,0.35586 -0.870901,0.35586 -1.306585,0 l -4.13725,-3.38156 -4.137249,3.38156 c -0.435452,0.35586 -0.871136,0.35586 -1.306586,0 L 51.1268,128.46665 c -0.435684,-0.35605 -0.435684,-0.7119 0,-1.06795 z m 0,0"/>
-                        <path fill="#1e3a56" d="m 57.441506,137.75443 -6.314742,-5.1612 c -0.435685,-0.35605 -0.435685,-0.7119 0,-1.06795 l 0.870903,-0.71189 c 0.435451,-0.35586 0.871135,-0.35586 1.306586,0 l 4.137253,3.38156 4.137252,-3.38156 c 0.435451,-0.35586 0.871136,-0.35586 1.306587,0 l 0.870902,0.71189 c 0.435685,0.35605 0.435685,0.7119 0,1.06795 z m 0,0"/>
-                        <path fill="#d8874a" d="m 57.44696,126.762 3.948888,3.34228 -3.959637,3.12536 -3.949048,-3.34228 z m 0,0"/>
-                    </g>
-                </svg>
-                <span>Peach State Logistics & Consulting</span>
-            </div>
-            <nav>
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <div class="container">
+      <a class="logo" href="#top" aria-label="Peach State Logistics and Consulting home">
+        <svg class="logo-icon" viewBox="0 0 13.283039 15.516931" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g transform="translate(-50.8,-122.2375)">
+            <path fill="#f8f0e1" d="m57.441537 122.2375 6.314737 5.1612c.435685.35605.435685.7119 0 1.06795l-.870902.71189c-.43545.35586-.870901.35586-1.306585 0l-4.13725-3.38156-4.137249 3.38156c-.435452.35586-.871136.35586-1.306586 0l-.870892-.71189c-.435684-.35605-.435684-.7119 0-1.06795z"/>
+            <path fill="#f8f0e1" d="m57.441506 137.75443-6.314742-5.1612c-.435685-.35605-.435685-.7119 0-1.06795l.870903-.71189c.435451-.35586.871135-.35586 1.306586 0l4.137253 3.38156 4.137252-3.38156c.435451-.35586.871136-.35586 1.306587 0l.870902.71189c.435685.35605.435685.7119 0 1.06795z"/>
+            <path fill="#d8874a" d="m57.44696 126.762 3.948888 3.34228-3.959637 3.12536-3.949048-3.34228z"/>
+          </g>
+        </svg>
+        <span>Peach State Logistics &amp; Consulting</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#resources">Resources</a>
+        <a href="#process">How It Works</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
+  <main id="top">
     <section class="hero">
-        <div class="container">
-            <h1>Data-Driven Supply Chain Advisory for Northeast Georgia Shippers</h1>
-            <p class="tagline">Recover warehouse capacity, reduce labor cycle times, and execute financial lane modeling for the Gainesville Inland Port.</p>
-            <a href="#contact" class="btn-primary">Schedule a Free Discovery Call</a>
-            <p class="cta-subtext">No obligation. Just a 30-minute operational assessment.</p>
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Supply Chain Operations Consulting</p>
+          <h1>Turn operational data into practical improvement.</h1>
+          <p class="tagline">We help manufacturers and distributors improve inventory performance, warehouse operations, process efficiency, KPIs, and transportation decisions through focused, data-driven analysis.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">Start with an Operations Health Check</a>
+            <a class="btn btn-secondary" href="#resources">Explore Free Resources</a>
+          </div>
+          <p class="hero-note">Fixed-scope assessments for growing manufacturers and distributors. Based in Northeast Georgia with remote engagements available.</p>
         </div>
+        <aside class="hero-panel" aria-label="Core consulting areas">
+          <p>Areas of focus</p>
+          <ul>
+            <li>Inventory health and working capital</li>
+            <li>Warehouse flow and capacity</li>
+            <li>Operational KPIs and dashboards</li>
+            <li>Processes, SOPs, and root causes</li>
+            <li>Transportation and network decisions</li>
+          </ul>
+        </aside>
+      </div>
     </section>
 
-    <section id="who-we-serve">
-        <div class="container">
-            <h2>Who We Serve</h2>
-            <p class="section-intro">
-                We partner with industrial plant managers, distribution directors, and operational leaders across the Northeast Georgia manufacturing corridor who need executive-level clarity on cost engineering. Whether your operation is looking to unlock cash flow from slow-moving pallets, reclaim wasted pick labor, or audit short-haul drayage margins to Savannah, we deliver execution-ready strategies backed by real-world operational benchmarks.
-            </p>
-        </div>
-    </section>
-
-    <section id="services">
-        <div class="container">
-            <h2>Supply Chain Consulting Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Port Readiness Assessment</h3>
-                    <p>
-                        An independent, pure-play financial modeling engagement designed to determine if shifting lanes from OTR trucking to intermodal rail makes bottom-line sense. You receive a definitive Go / No-Go decision framework, comprehensive door-to-door drayage cost comparisons, and an implementation risk matrix.
-                    </p>
-                    <p class="price">Starting At: $3,500</p>
-                </div>
-
-                <div class="service-card">
-                    <h3>Inventory Rationalization</h3>
-                    <p>
-                        Stop letting slow-moving and obsolete stock silently drain your working capital and consume prime floor space. We execute a comprehensive transactional velocity audit to isolate trapped cash, establish data-driven safety stock parameters, and build a structured liquidation roadmap.
-                    </p>
-                    <p class="price">Starting At: $2,500</p>
-                </div>
-
-                <div class="service-card">
-                    <h3>DC Slotting Optimization</h3>
-                    <p>
-                        Eliminate the hidden labor drain of unoptimized warehouse layouts. We perform an on-site physical workflow audit and map an engineered pick-path layout utilizing ABC velocity metrics—reducing picker travel times and expanding daily throughput capacity by up to 15%.
-                    </p>
-                    <p class="price">Starting At: $3,500</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <h2>About</h2>
-            <div class="about-content">
-                <p>
-                    We bring hands-on supply chain management experience across inventory rationalization, warehouse slotting
-                    optimization, and distribution operations. Our background includes measurable outcomes in reducing excess
-                    and obsolete inventory, improving warehouse efficiency, and optimizing freight routing for regional
-                    manufacturers.
-                </p>
-                <p>
-                    Through Peach State Logistics & Consulting, we offer targeted engagements for manufacturers and distributors
-                    in Hall, Jackson, Barrow, Banks, and White counties. Whether you need a one-time assessment or ongoing
-                    supply chain support, we focus on practical recommendations that deliver ROI.
-                </p>
-                <p>
-                    Based in Hall County, we understand the Northeast Georgia manufacturing landscape and the strategic
-                    opportunity the Gainesville Inland Port represents for regional freight operations.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <div class="port-highlight">
-        <div class="container">
-            <h2>Navigating the Gainesville Short-Haul Rail Corridor</h2>
-            <p>
-                The Gainesville Inland Port connects Northeast Georgia directly to Savannah’s Garden City Terminal via Norfolk Southern rail. While the sustainability and long-haul cost models are clear, short-haul intermodal introduces complex friction points—including fixed train schedules, container yard dwell times, and local drayage logistics. The question isn't whether the infrastructure exists; it’s whether your specific container volume and lead-time tolerance justify the transition. Our assessments provide the exact lane data needed to safeguard your line velocity before altering your carrier routing.
-            </p>
-        </div>
+    <div class="trust-strip" aria-label="Who we support">
+      <div class="container">
+        <div class="trust-item">Manufacturers</div>
+        <div class="trust-item">Distributors</div>
+        <div class="trust-item">Northeast Georgia</div>
+        <div class="trust-item">Remote Support Available</div>
+      </div>
     </div>
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Benchmark Your Current Supply Chain Metrics</h2>
-            <p class="section-intro">
-                We offer a brief, confidential 30-minute operational assessment. No sales pitch, no obligation, and fully protected by a mutual NDA. We'll discuss your current carrier lanes, warehouse labor constraints, or inventory hurdles, and share what we are seeing across similar operations in the market.
-            </p>
-            <div class="contact-methods">
-                <div class="contact-item">
-                    <strong>Phone</strong>
-                    <a href="tel:6786797738">(678) 679-7738</a>
-                </div>
-                <div class="contact-item">
-                    <strong>Email</strong>
-                    <a href="mailto:drew@peachstatelogco.com">drew@peachstatelogco.com</a>
-                </div>
-            </div>
-            <a href="https://calendly.com/drew-peachstatelogco/30min-discovery-call" class="btn-primary">Book Your Free Discovery Call</a>
-            <p style="margin-top: 2.5rem; opacity: 0.8; font-weight: 500;">Gainesville, GA | Serving Northeast Georgia</p>
+    <section id="problems">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Problems We Help Clarify</p>
+          <h2>When the operation is busy, but performance is hard to see</h2>
+          <p>We help leadership find the operational issues that deserve attention first, quantify their impact where the data permits, and build a realistic path forward.</p>
         </div>
+        <div class="problem-grid">
+          <article class="problem-card"><h3>Inventory outpaces sales</h3><p>Cash is tied up in slow-moving, excess, or obsolete stock without a clear action plan.</p></article>
+          <article class="problem-card"><h3>Warehouse flow breaks down</h3><p>Receiving, putaway, picking, replenishment, or staging creates recurring delays.</p></article>
+          <article class="problem-card"><h3>KPIs do not guide decisions</h3><p>Leadership has reports, but lacks a focused scorecard that shows what is improving or declining.</p></article>
+          <article class="problem-card"><h3>Tribal knowledge drives work</h3><p>Critical processes depend on individual experience instead of clear, usable procedures.</p></article>
+          <article class="problem-card"><h3>Capacity feels constrained</h3><p>Space, labor, material flow, or scheduling limits output, but the root cause is unclear.</p></article>
+          <article class="problem-card"><h3>Data is available but unused</h3><p>The team has operational data but lacks the time or structure to turn it into action.</p></article>
+        </div>
+      </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Peach State Logistics & Consulting. All rights reserved.</p>
+    <section class="white" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Fixed-Scope Entry Assessments</p>
+          <h2>Choose the starting point that matches your problem</h2>
+          <p>Each assessment has a defined scope, required-data list, timeline, deliverables, and fixed fee before work begins.</p>
         </div>
-    </footer>
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="service-number">Start here</span>
+            <h3>Supply Chain Operations Health Check</h3>
+            <p>For leaders who know performance should be stronger but need an independent view of where to begin.</p>
+            <ul><li>Leadership interview and intake questionnaire</li><li>High-level KPI and process review</li><li>Priority opportunity matrix</li><li>Executive findings and next-step plan</li></ul>
+            <p class="service-price">Starting at: $1,500</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">Inventory</span>
+            <h3>Inventory Health Audit</h3>
+            <p>For organizations with too much cash tied up in inventory or limited visibility into stock quality.</p>
+            <ul><li>ABC and movement segmentation</li><li>Turns, aging, excess, and obsolete review</li><li>Working-capital opportunity estimate</li><li>Prioritized inventory action plan</li></ul>
+            <p class="service-price">Starting at: $2,500</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">Warehouse</span>
+            <h3>Warehouse Process Assessment</h3>
+            <p>For facilities experiencing workflow delays, capacity concerns, excess travel, or inconsistent execution.</p>
+            <ul><li>Receiving-through-shipping process review</li><li>Bottleneck and material-flow analysis</li><li>Space and capacity observations</li><li>Quick wins and improvement roadmap</li></ul>
+            <p class="service-price">Starting at: $3,000</p>
+          </article>
+          <article class="service-card">
+            <span class="service-number">Visibility</span>
+            <h3>KPI &amp; Dashboard Assessment</h3>
+            <p>For teams with too many reports, missing measures, or metrics that do not support daily decisions.</p>
+            <ul><li>Current KPI and reporting review</li><li>Metric definitions and ownership</li><li>Executive scorecard design</li><li>Review cadence and action framework</li></ul>
+            <p class="service-price">Starting at: $2,000</p>
+          </article>
+        </div>
+        <p class="section-note">Engagements are priced according to scope, data requirements, the number of facilities or lanes, and desired deliverables. After an introductory call, you’ll receive a written proposal with a fixed fee, timeline, required-data list, and deliverables before work begins.</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Deeper Improvement Work</p>
+          <h2>Move from findings to implementation</h2>
+          <p>When an assessment identifies a larger opportunity, the next engagement is scoped around the specific result you need.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card"><h3>Inventory Optimization</h3><p>Segmentation, policy review, parameter analysis, and action planning.</p></article>
+          <article class="project-card"><h3>Warehouse Operations</h3><p>Flow, slotting, replenishment, capacity, and workflow improvement.</p></article>
+          <article class="project-card"><h3>Process &amp; SOP Improvement</h3><p>Current-state mapping, failure points, controls, and practical standards.</p></article>
+          <article class="project-card"><h3>Capacity &amp; Material Flow</h3><p>Space utilization, throughput constraints, and operating alternatives.</p></article>
+          <article class="project-card"><h3>Transportation Analysis</h3><p>Freight KPIs, lane patterns, routing, mode, and service-level evaluation.</p></article>
+        </div>
+        <div class="advisory-callout">
+          <div><h3>Ongoing Operations Advisory</h3><p>Optional monthly or quarterly support for KPI reviews, implementation accountability, SOP development, and continuous improvement after an initial project.</p></div>
+          <a class="btn btn-primary" href="#contact">Discuss Advisory Support</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="white" id="resources">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Free Supply Chain Resources</p>
+          <h2>Get a useful answer before you schedule a call</h2>
+          <p>Use the calculator now, or start a conversation around the checklist and insight topics most relevant to your operation.</p>
+        </div>
+        <div class="resource-grid">
+          <article class="calculator">
+            <h3>Inventory Carrying Cost Calculator</h3>
+            <p>Estimate the annual cost of holding inventory using an all-in carrying-cost rate.</p>
+            <div class="calc-grid">
+              <label>Average inventory value ($)<input id="inventoryValue" type="number" min="0" step="1000" value="2000000" inputmode="decimal"></label>
+              <label>Estimated all-in annual carrying-cost rate (%)<input id="carryingRate" type="number" min="0" step="0.1" value="25" inputmode="decimal" aria-describedby="carryingMethodology"></label>
+            </div>
+            <p class="methodology-note" id="carryingMethodology"><strong>About this estimate:</strong> The carrying-cost rate is intended to represent the total annual cost of holding inventory, including capital, storage, handling, insurance, taxes, shrinkage, and obsolescence. The 25% default is a general planning assumption. Replace it with your organization's all-in rate when available; do not add these costs separately.</p>
+            <div class="calc-actions"><button class="btn btn-primary" type="button" id="calculateButton">Calculate Cost</button></div>
+            <div class="calc-result" aria-live="polite">Estimated annual carrying cost<span id="carryingResult">$500,000</span></div>
+            <p class="methodology-note">This directional result is a planning estimate, not a substitute for a detailed inventory analysis.</p>
+          </article>
+          <article class="resource-card">
+            <p class="resource-type">Checklist</p>
+            <h3>Supply Chain Operations Health Checklist</h3>
+            <p>A practical set of questions covering inventory, warehousing, processes, KPIs, planning, and transportation.</p>
+            <a class="text-link" href="mailto:drew@peachstatelogco.com?subject=Operations%20Health%20Checklist">Request the checklist →</a>
+          </article>
+          <article class="resource-card">
+            <p class="resource-type">Insights</p>
+            <h3>Operations Articles &amp; Guides</h3>
+            <p>Plain-language guidance on inventory health, warehouse KPIs, process improvement, and operational decision-making, published on LinkedIn.</p>
+            <a class="text-link" href="https://www.linkedin.com/in/drew-souther-peach-state-logistics-consulting" target="_blank" rel="noopener noreferrer">Read Drew's insights on LinkedIn ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">How It Works</p>
+          <h2>A clear process from first discussion to action</h2>
+          <p>You know the scope, information requirements, schedule, and expected deliverables before the engagement begins.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><div class="step-num">1</div><h3>Initial Fit Discussion</h3><p>We discuss the challenge, available data, timeline, stakeholders, and whether it fits our expertise.</p></article>
+          <article class="step"><div class="step-num">2</div><h3>Fixed-Scope Assessment</h3><p>You receive a written scope with the required data, timeline, deliverables, and fixed fee.</p></article>
+          <article class="step"><div class="step-num">3</div><h3>Findings &amp; Action Plan</h3><p>We present prioritized findings, financial implications, quick wins, and longer-term recommendations.</p></article>
+          <article class="step"><div class="step-num">4</div><h3>Implementation Support</h3><p>Optional support keeps improvements moving through KPI reviews, SOPs, tracking, and advisory.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="white" id="deliverables">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Tangible Deliverables</p>
+          <h2>What you receive</h2>
+          <p>Deliverables vary by scope, but each engagement is designed to give leadership a clear decision and the team a usable next step.</p>
+        </div>
+        <div class="deliverables-grid">
+          <div class="deliverable">Executive findings report</div><div class="deliverable">KPI scorecard or dashboard</div><div class="deliverable">Current-state process map</div><div class="deliverable">Financial impact estimates</div>
+          <div class="deliverable">Prioritized quick wins</div><div class="deliverable">30-, 60-, and 90-day plan</div><div class="deliverable">Leadership presentation</div><div class="deliverable">Supporting analysis workbook</div>
+        </div>
+        <div class="principles">
+          <div class="principles-copy"><p class="eyebrow">Our Approach</p><h2>Practical analysis, not generic recommendations</h2><p>The goal is not to produce a longer report. It is to make the operational problem clearer, show which opportunities matter, and create a plan the organization can actually use.</p></div>
+          <div class="principle-list">
+            <div class="principle"><strong>Use the operation's own data</strong>Recommendations are grounded in the client's processes, constraints, and information.</div>
+            <div class="principle"><strong>Quantify impact where possible</strong>Financial and operational estimates are clearly labeled and tied to available data.</div>
+            <div class="principle"><strong>Prioritize effort and value</strong>Quick wins and longer-term improvements are separated so the team knows where to start.</div>
+            <div class="principle"><strong>Remain independent</strong>We do not sell software, freight capacity, or equipment, so the analysis is focused on fit.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="regional" id="regional">
+      <div class="container regional-inner">
+        <div>
+          <p class="eyebrow">Independent Regional Decision Support</p>
+          <h2>Considering the Gainesville Inland Port?</h2>
+          <p>If your company has received a rail proposal—or an over-the-road carrier has countered with new pricing—we provide an independent, data-driven second opinion.</p>
+          <p>The review looks beyond the quoted freight rate to determine how each option could affect your total supply chain operation. We do not sell freight capacity or represent a railroad or carrier, so the recommendation is based on operational and financial fit.</p>
+          <div class="decision-factors" aria-label="Proposal comparison factors">
+            <div class="decision-factor">Total transportation cost</div>
+            <div class="decision-factor">Transit time and reliability</div>
+            <div class="decision-factor">Inventory and working capital</div>
+            <div class="decision-factor">Receiving and facility fit</div>
+            <div class="decision-factor">Volume commitments and flexibility</div>
+            <div class="decision-factor">Implementation and disruption risk</div>
+          </div>
+        </div>
+        <aside class="regional-note">
+          <p class="resource-type">Focused Assessment</p>
+          <h3>Independent Truck vs. Inland Port Review</h3>
+          <p>For manufacturers comparing a Norfolk Southern or inland-port proposal with an OTR carrier offer or counteroffer.</p>
+          <ul>
+            <li>Apples-to-apples proposal comparison</li>
+            <li>Annual and per-container cost model</li>
+            <li>Inventory and working-capital impact</li>
+            <li>Service and operational-risk scorecard</li>
+            <li>Break-even and sensitivity analysis</li>
+            <li>Recommendation, pilot options, and success criteria</li>
+          </ul>
+          <p>The conclusion may support staying with OTR, converting selected freight to rail, negotiating better terms, or testing the change through a controlled pilot.</p>
+          <a class="btn btn-primary" href="mailto:drew@peachstatelogco.com?subject=Independent%20Truck%20vs.%20Inland%20Port%20Review">Request an Independent Proposal Review</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="white" id="about">
+      <div class="container about-content">
+        <div><p class="eyebrow">About</p><h2>Operator-led supply chain support</h2></div>
+        <div>
+          <p>Peach State Logistics &amp; Consulting was founded to bring practical supply chain operations support to manufacturers and distributors that need clear analysis without the cost and complexity of a national consulting firm.</p>
+          <p>Our approach combines hands-on supply chain operations experience with data analysis, process mapping, KPI development, and structured implementation planning. Engagements focus on inventory, warehousing, operational processes, performance visibility, and logistics decisions.</p>
+          <p>Based in Hall County, Georgia, we serve Northeast Georgia organizations and support appropriate projects remotely.</p>
+          <div class="fit-list"><h3>A strong fit for organizations that:</h3><ul><li>Need an independent operational perspective</li><li>Have data but limited internal analysis capacity</li><li>Want a focused assessment before a larger project</li><li>Prefer practical recommendations with clear ownership</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Contact</p>
+          <h2>Discuss your operational challenge</h2>
+          <p>Schedule a confidential introductory call to discuss the issue, determine whether it fits our expertise, and identify the most appropriate next step. If a paid assessment makes sense, you will receive a written scope before work begins.</p>
+        </div>
+        <div class="contact-methods">
+          <div class="contact-item"><strong>Phone</strong><a href="tel:6786797738">(678) 679-7738</a></div>
+          <div class="contact-item"><strong>Email</strong><a href="mailto:drew@peachstatelogco.com">drew@peachstatelogco.com</a></div>
+        </div>
+        <a class="btn btn-primary" href="https://calendly.com/drew-peachstatelogco/30min-discovery-call">Schedule an Introductory Call</a>
+        <p class="nda-note">NDAs are available when confidential information needs to be exchanged.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container"><p>&copy; <span id="year">2026</span> Peach State Logistics &amp; Consulting. All rights reserved.</p></div></footer>
+
+  <script>
+    const currency = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+    function calculateCarryingCost() {
+      const inventory = Math.max(0, Number(document.getElementById('inventoryValue').value) || 0);
+      const rate = Math.max(0, Number(document.getElementById('carryingRate').value) || 0) / 100;
+      document.getElementById('carryingResult').textContent = currency.format(inventory * rate);
+    }
+    document.getElementById('calculateButton').addEventListener('click', calculateCarryingCost);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
