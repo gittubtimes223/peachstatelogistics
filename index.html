@@ -222,6 +222,17 @@
     .form-status.success { background: #e2f3e8; color: #174c2b; }
     .form-status.error { background: #fde8e5; color: #7b261d; }
     .checklist-form button:disabled { cursor: wait; opacity: .72; transform: none; }
+    .checklist-download {
+      background: rgba(248,240,225,.08);
+      border: 1px solid rgba(248,240,225,.22);
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+    }
+    .checklist-download[hidden] { display: none; }
+    .checklist-download h4 { color: var(--cream); font-size: 1.25rem; }
+    .checklist-download p { color: rgba(248,240,225,.82); margin: .45rem 0 1rem; }
+    .checklist-download .download-note { color: rgba(248,240,225,.68); font-size: .82rem; margin: .8rem 0 0; }
 
     .process { background: linear-gradient(135deg, var(--navy), var(--slate)); color: var(--cream); }
     .process h2, .process h3 { color: var(--cream); }
@@ -521,6 +532,12 @@
             <p class="form-privacy">Your information will not be sold or shared with third parties. Marketing consent is optional.</p>
             <div class="form-status" id="checklist-form-status" role="status" aria-live="polite"></div>
           </form>
+          <div class="checklist-download" id="checklist-download" hidden tabindex="-1">
+            <h4>Your checklist is ready</h4>
+            <p>Thank you. Use the button below to download your Supply Chain Operations Health Checklist.</p>
+            <a class="btn btn-primary" href="/downloads/supply-chain-operations-health-checklist.pdf" download>Download the Checklist</a>
+            <p class="download-note">If the download does not start automatically, select the button above to open the PDF.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -642,6 +659,7 @@
     const checklistForm = document.getElementById('health-checklist-form');
     const checklistSubmit = document.getElementById('checklist-submit');
     const checklistStatus = document.getElementById('checklist-form-status');
+    const checklistDownload = document.getElementById('checklist-download');
 
     checklistForm.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -664,8 +682,9 @@
         }
 
         checklistForm.reset();
-        checklistStatus.textContent = 'Thank you. Your checklist request has been received. Please check your email for the next step.';
-        checklistStatus.className = 'form-status success is-visible';
+        checklistForm.hidden = true;
+        checklistDownload.hidden = false;
+        checklistDownload.focus();
       } catch (error) {
         checklistStatus.textContent = error.message || 'We could not submit your request. Please try again or email drew@peachstatelogco.com.';
         checklistStatus.className = 'form-status error is-visible';
